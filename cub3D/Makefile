@@ -1,14 +1,19 @@
 CC = gcc
-CFLAGS =
+CFLAGS = -Wall -Werror -Wextra
 NAME = cub
-SRC = src/ft_strdup.c src/ft_strjoin.c src/ft_split.c \
+SRC = src/ft_split.c src/ft_strdup.c src/ft_strjoin.c  \
 	src/free_destroy.c \
+	src/process_input.c \
+	src/setup_map.c \
+	src/castRays.c \
+	src/texture.c \
 	src/checkWall.c \
 	src/read_file.c \
 	src/move.c \
 	src/render.c \
 	src/draw.c \
 	src/create.c \
+	src/hori_vert-Intercestion.c \
 	src/main.c
 
 

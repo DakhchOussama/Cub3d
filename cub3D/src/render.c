@@ -1,55 +1,80 @@
 #include "main.h"
 
-void setup(t_player *player, t_map map)
+void draw_sky(t_game *game, t_pic *pic)
 {
-    // initialize and setup game objects
-    // playerPosition(player, map);
-    player->x = map.window_width / 2;
-    player->y = map.window_height / 2;
-    player->width = 1;
-    player->height = 1;
-    player->turnDirection = 0;
-    player->walkDirection = 0;
-    player->rotationAngle = PI / 2;
-    player->walkSpeed = 30;
-    player->turnSpeed = 45 * (PI / 180);
+	pic->y = 0;
+	while (pic->y < ((2 * pic->Wall_top_pixel) / 2))
+	{
+		my_mlx_pixel_put(&game->data, pic->i, pic->y, 0x34E2DF);
+		pic->y++;
+	}
 }
 
-
-void renderMap(t_data data, t_map map, t_player *player)
+void draw_wall(t_game *game, t_pic *pic, int wallStrpHeight)
 {
-    int i;
-    int j;
-
-    if (!map.my_map)
-    {
-        display_error("free map");
-        return ;
-    }
-    for (i = 0; i < map.num_rows; i++)
-    {
-        for (j = 0; j < map.num_cols; j++)
-        {
-            int tileColor ;
-
-            if (map.my_map[i][j] == 1)
-                tileColor = 0x000000;
-            else if (map.my_map[i][j] == 0)
-                tileColor = 0xFFFFFF;
-            draw_mini_map(data, j * map.title_size , i * map.title_size , tileColor);
-        }
-    }
+	if (game->ray[pic->i].wasHitVertical)
+		pic->textOff_X = (int)game->ray[pic->i].wallHitY % game->map.tile_size;
+	else
+		pic->textOff_X = (int)game->ray[pic->i].wallHitX % game->map.tile_size;
+	pic->textOff_X *= game->text.north.width / game->map.tile_size;
+	pic->y = pic->Wall_top_pixel;
+	if (game->ray[pic->i].ray_up && !game->ray[pic->i].wasHitVertical)
+		game->text.now = game->text.north;
+	else if (game->ray[pic->i].ray_down && !game->ray[pic->i].wasHitVertical)
+		game->text.now = game->text.south;
+	if (game->ray[pic->i].ray_right && game->ray[pic->i].wasHitVertical)
+		game->text.now = game->text.east;
+	if (game->ray[pic->i].ray_left && game->ray[pic->i].wasHitVertical)
+		game->text.now = game->text.west;
+	while (pic->y < pic->Wall_bottom_pixel)
+	{
+		pic->distance_from_top = pic->y + (wallStrpHeight / 2) - (game->map.window_height / 2);
+		pic->textOff_Y = pic->distance_from_top * ((float)game->text.north.height / wallStrpHeight);
+		pic->color = my_mlx_pixel_pick(&game->text.now, pic->textOff_X, pic->textOff_Y);
+		my_mlx_pixel_put(&game->data, pic->i, pic->y, pic->color);
+		pic->y++;
+	}
 }
 
-void renderPlayer(t_data data, t_map map, t_player *player)
+void ground(t_game *game, t_pic *pic)
 {
-    draw_player(data, map, player);
-    draw_line(data, player);
+	while (pic->y < game->map.window_height)
+	{
+		my_mlx_pixel_put(&game->data, pic->i, pic->y, 0x5C5069);
+		pic->y++;
+	}
 }
 
-void render(t_data data, t_player *player, t_map map)
+void Map3D(t_game *game)
 {
-    renderMap(data, map, player);
-    renderPlayer(data, map, player);
-    mlx_put_image_to_window(data.mlx, data.window, data.img, 0, 0);
+	t_pic pic;
+	int num_rays;
+	int wallStripHeight;
+
+	num_rays = game->map.window_width;
+	pic.i = 0;
+	while (pic.i < num_rays)
+	{
+		pic.correctDistance = game->ray[pic.i].distance * cos(game->ray[pic.i].rayAngle - game->player.rotationAngle); // fishbowl distrotion
+		pic.distanceprojplan = (game->map.window_width / 2) / tan(FOV / 2);
+		pic.projectionWall = (game->map.tile_size / pic.correctDistance) * pic.distanceprojplan;
+		wallStripHeight = (int)pic.projectionWall;
+		pic.Wall_top_pixel = (game->map.window_height / 2) - (wallStripHeight / 2);
+		if (pic.Wall_top_pixel < 0)
+			pic.Wall_top_pixel = 0;
+		pic.Wall_bottom_pixel = (game->map.window_height / 2) + (wallStripHeight / 2);
+		if (pic.Wall_bottom_pixel > game->map.window_height)
+			pic.Wall_bottom_pixel = game->map.window_height;
+		draw_sky(game, &pic);
+		draw_wall(game, &pic, wallStripHeight);
+		ground(game, &pic);
+		pic.i++;
+	}
+}
+
+void render(t_game *game)
+{
+	castAllRays(game);
+	Map3D(game);
+    mlx_put_image_to_window(game->data.mlx, game->data.window, game->data.img, 0, 0);
 }

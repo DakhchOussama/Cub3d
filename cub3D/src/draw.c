@@ -66,10 +66,10 @@ void playerPosition(t_player *player, t_map map)
         j = 0;
         while (j < map.num_cols)
         {
-            if (map.my_map[i][j] == 2)
+            if (map.my_map[i][j] == 'N')
             {
-                player->x = j * map.title_size;
-                player->y = i * map.title_size;
+                player->x = j * map.tile_size;
+                player->y = i * map.tile_size;
             }
             j++;
         }
@@ -77,11 +77,10 @@ void playerPosition(t_player *player, t_map map)
     }
 }
 
-void draw_player(t_data data, t_map map, t_player *player)
+void draw_player(t_data data, t_player *player)
 {
     int i;
     int j;
-    int new_j;
 
     i = player->x;
     while (i < player->x + 1)

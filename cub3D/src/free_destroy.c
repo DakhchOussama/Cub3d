@@ -1,20 +1,21 @@
 #include "main.h"
 
-void	free_mlx(t_data	data)
+void	free_mlx(t_game *game)
 {
-	if (data.mlx)
+	if (game->data.mlx)
 	{
-		mlx_destroy_image(data.mlx, data.img);
-		mlx_destroy_window(data.mlx, data.window);
-		mlx_clear_window(data.mlx, data.window);
-		// free(data.mlx);
+		mlx_destroy_image(game->data.mlx, game->data.img);
+		mlx_destroy_window(game->data.mlx, game->data.window);
+		mlx_clear_window(game->data.mlx, game->data.window);
+		free(game->map.my_map);
 		printf("Exit Game\n");
+		exit(0);
 	}
 }
 
-void exit_game(t_data data)
+void exit_game(t_game *game)
 {
-	free_mlx(data);
+	free_mlx(game);
 }
 
 void display_error(char *msg)
@@ -23,9 +24,9 @@ void display_error(char *msg)
 	exit(EXIT_FAILURE);
 }
 
-int	ft_cross(t_data data)
+int	ft_cross(t_game *game)
 {
-	free_mlx(data);
+	free_mlx(game);
 	return (0);
 }
 
