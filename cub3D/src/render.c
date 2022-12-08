@@ -3,7 +3,7 @@
 void draw_sky(t_game *game, t_pic *pic)
 {
 	pic->y = 0;
-	while (pic->y < ((2 * pic->Wall_top_pixel) / 2))
+	while (pic->y < pic->Wall_top_pixel)
 	{
 		my_mlx_pixel_put(&game->data, pic->i, pic->y, 0x34E2DF);
 		pic->y++;
@@ -62,7 +62,7 @@ void Map3D(t_game *game)
 		pic.Wall_top_pixel = (game->map.window_height / 2) - (wallStripHeight / 2);
 		if (pic.Wall_top_pixel < 0)
 			pic.Wall_top_pixel = 0;
-		pic.Wall_bottom_pixel = (game->map.window_height / 2) + (wallStripHeight / 2);
+		pic.Wall_bottom_pixel = (game->map.window_height / 2) + (wallStripHeight / 2); //??
 		if (pic.Wall_bottom_pixel > game->map.window_height)
 			pic.Wall_bottom_pixel = game->map.window_height;
 		draw_sky(game, &pic);

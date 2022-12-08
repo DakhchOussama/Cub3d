@@ -24,9 +24,16 @@ void setup(t_player *player, t_map map)
     player->turnDirection = 0;
     player->walkDirection = 0;
 	player->walkDirection_side = 0;
-    player->rotationAngle = 1.5 * PI; // pi / 2
+	if (map.position == 'N')
+		player->rotationAngle = 1.5 * PI;
+	else if (map.position == 'S')
+    	player->rotationAngle = 0.5 * PI;
+	else if (map.position == 'E')
+    	player->rotationAngle = 0;
+	else if (map.position == 'W')
+    	player->rotationAngle = PI;
     player->walkSpeed = 60;
-    player->turnSpeed = 30 * (PI / 180);
+    player->turnSpeed = 20 * (PI / 180);
 }
 
 int row_length_file(char **table)
@@ -105,29 +112,34 @@ void fillMap(char *line, char *buff, t_map *map)
         else if (line[i] == '2')
             buff[i] = '2';
         else if (line[i] == 'N')
+		{
+			map->position = 'N';
 			buff[i] = 'N';
+		}
+		else if (line[i] == 'S')
+		{
+			map->position = 'S';
+			buff[i] = 'S';
+		}
+		else if (line[i] == 'E')
+		{
+			 map->position = 'E';
+			buff[i] = 'E';
+		}
+		else if (line[i] == 'W')
+		{
+			map->position = 'W';
+			buff[i] = 'W';
+		}
 		// else
         //     display_error("Parsing Error\n");
         i++;
     }
 }
 
-// void free_map(char **map_tab)
-// {
-// 	int i;
-
-// 	i = 0;
-// 	while (map_tab[i])
-// 	{
-// 		free(map_tab[i]);
-// 		i++;
-// 	}
-// }
-
 void    setup_map(t_map *map, char *table)
 {
     char **str;
-    char **map_tab;
     int i;
 	int j;
 
@@ -136,23 +148,21 @@ void    setup_map(t_map *map, char *table)
         display_error("Error in Map");
 	verify_data(str, map);
     takeSize(str, map);
-    map_tab = (char **)malloc((map->num_rows) * sizeof(char *));
-    if (!map_tab)
+    map->my_map = (char **)malloc((map->num_rows) * sizeof(char *));
+    if (!map->my_map)
         display_error("Map Allocation error\n");
-    map_tab[map->num_rows] = NULL;
+    map->my_map[map->num_rows] = NULL;
     i = 4;
 	j = 0;
     while (i < map->num_rows_file && j < map->num_rows)
     {
-        map_tab[j] = (char *) malloc((map->num_cols) * sizeof(char));
-        if (!map_tab[j])
+        map->my_map[j] = (char *) malloc((map->num_cols) * sizeof(char));
+        if (!map->my_map[j])
             display_error("Map allocation error\n");
-        fillMap(str[i], map_tab[j], map);
+        fillMap(str[i], map->my_map[j], map);
 		j++;
         i++;
     }
-	map->my_map = map_tab; //????
-	// free_map(map_tab);
 }
 
 

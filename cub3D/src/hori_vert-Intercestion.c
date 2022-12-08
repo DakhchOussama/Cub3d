@@ -56,7 +56,7 @@ void horizontal_intersection2(t_game *game , int max_width, int max_height)
      && game->horizantal.nextTouchY <= max_height)
     {
         game->horizantal.xtocheck = game->horizantal.nextTouchX;
-        if (game->raycast.isRayFacingUp) //?????
+        if (game->raycast.isRayFacingUp)
             game->horizantal.ytocheck = game->horizantal.nextTouchY - 1 ;
         else
             game->horizantal.ytocheck = game->horizantal.nextTouchY;
@@ -114,8 +114,8 @@ void verify_lower_intersection(t_game *game, float rayAngle, int id)
 		game->vertical.distance = distance_between_points(game->player.x, game->player.y, game->vertical.wallHitX, game->vertical.wallHitY);
 	else
 		game->vertical.distance = FLT_MAX;
-	if ((game->vertical.distance == game->horizantal.distance) && game->raycast.isRayFacingRight)
-		game->vertical.distance--; //????
+	if (game->vertical.distance == game->horizantal.distance)
+		game->vertical.distance--;
 	if (game->vertical.distance < game->horizantal.distance)
 		put_on_struct(&game->vertical, game, id, TRUE);
 	else

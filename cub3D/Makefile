@@ -1,6 +1,6 @@
 CC = gcc
 CFLAGS = -Wall -Werror -Wextra
-NAME = cub
+NAME = cub3D
 SRC = src/ft_split.c src/ft_strdup.c src/ft_strjoin.c  \
 	src/free_destroy.c \
 	src/process_input.c \

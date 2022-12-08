@@ -24,10 +24,10 @@ typedef struct s_data
     void *mlx;
     void *img;
     char *addr;
+    void *window;
     int bpp;
     int zl;
     int ed;
-    void *window;
 	int width;
 	int height;
     int tickslastframe;
@@ -44,6 +44,7 @@ typedef struct s_map
     int wall;
     int player;
     char **my_map;
+	char position;
 	char *NO;
 	char *SO;
 	char *WE;
@@ -147,14 +148,12 @@ typedef struct s_game
 	t_text		text;
 } t_game;
 
-
-
 //free function
 void    exit_game(t_game *game);
 int     ft_cross(t_game *game);
 void	free_mlx(t_game *game);
 void    display_error(char *msg);
-void    destroyWindow(void *mlx, void *window);
+void	free_check(char *str);
 
 //draw & create window
 void     CreateWindow(t_data *mlx, t_map map);
@@ -201,7 +200,7 @@ void horizontal_intersection(t_game *game, float ray_angle);
 void horizontal_intersection2(t_game *game , int max_width, int max_height);
 void vertical_intersection2(t_game *game , int max_width, int max_height);
 void vertical_intersection(t_game *game, float ray_angle);
-int has_collision(t_game *game, float x, float y, int num);
+int has_collision(t_game *game, float x, float y, char num);
 void verify_lower_intersection(t_game *game, float rayAngle, int id);
 void put_on_struct(t_ray *ray, t_game *game, int id, int choose);
 void allocate_rays(t_game *game);

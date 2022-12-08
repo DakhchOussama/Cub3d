@@ -10,7 +10,7 @@ float normalize_angle(float angle)
     return (angle);
 }
 
-int has_collision(t_game *game, float x, float y, int num)
+int has_collision(t_game *game, float x, float y, char num)
 {
     int map_x;
     int map_y;
@@ -40,77 +40,16 @@ void move(t_game *game)
     side_step = game->player.walkDirection_side * game->player.walkSpeed;
     newPlayerX = game->player.x + cos(game->player.rotationAngle) * moveStep;
     newPlayerY = game->player.y + sin(game->player.rotationAngle) * moveStep;
-    if (!has_collision(game, newPlayerX, newPlayerY, '1') && !has_collision(game, newPlayerX, newPlayerY, '2'))
+    if (!has_collision(game, newPlayerX, newPlayerY, '1'))
     {
         game->player.x = newPlayerX;
         game->player.y = newPlayerY;
     }
     newPlayerX = game->player.x + cos(game->player.rotationAngle + 0.5 * PI) * side_step;
     newPlayerY = game->player.y + sin(game->player.rotationAngle + 0.5 * PI) * side_step;
-    if (!has_collision(game, newPlayerX, newPlayerY, '1') && !has_collision(game, newPlayerX, newPlayerY, '2'))
+    if (!has_collision(game, newPlayerX, newPlayerY, '1'))
     {
         game->player.x = newPlayerX;
         game->player.y = newPlayerY;
     }
 }
-
-// void move_left(t_game *game)
-// {
-//     float moveStep;
-//     float newPlayerX;
-
-//     game->player.turnDirection = -1;
-//     moveStep = game->player.walkSpeed * game->player.turnDirection;
-//     newPlayerX = game->player.x + moveStep;
-//     if (isTherWallLeft(game))
-//         return ;
-//     game->player.x = newPlayerX;
-//     render(game);
-//     // game->player.turnDirection = 0;
-// }
-
-// void move_up(t_game *game)
-// {
-//     float moveStep;
-//     float newPlayerY;
-
-//     game->player.walkDirection = -1;
-//     moveStep = game->player.walkDirection * game->player.walkSpeed;
-//     newPlayerY = game->player.y + moveStep;
-//     if (isTherWallUp(game))
-//         return ;
-//     game->player.y = newPlayerY;
-//     render(game);
-//     // game->player.walkDirection = 0;
-// }
-
-// void move_down(t_game *game)
-// {
-//     float moveStep;
-//     float newPlayerY;
-
-//     game->player.walkDirection = +1;
-//     moveStep = game->player.walkDirection * game->player.walkSpeed;
-//     newPlayerY = game->player.y + moveStep;
-//     if (isTherWallDown(game))
-//         return ;
-//     game->player.y = newPlayerY;
-//     render(game);
-//     // game->player.walkDirection = 0;
-// }
-
-// void move_rotation_left(t_game *game)
-// {
-//     game->player.turnDirection = +1;
-//     game->player.rotationAngle += game->player.turnDirection * game->player.turnSpeed * 0.5;
-//     render(game);
-//     // game->player.turnDirection = 0;
-// }
-
-// void move_rotation_right(t_game *game)
-// {
-//     game->player.turnDirection = -1;
-//     game->player.rotationAngle += game->player.turnDirection * game->player.turnSpeed * 0.5;//FPS
-//     render(game);
-//     game->player.turnDirection = 0;
-// }

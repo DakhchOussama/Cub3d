@@ -16,7 +16,10 @@ int main(int argc, char **av)
     setup_map(&game.map, table);
     CreateWindow(&game.data, game.map);
 	if (setup_texture(&game, &game.text))
+	{
+		free_mlx(&game);
 		display_error("error in texture");
+	}
 	chose_tile_size(&game, &game.text);
     setup(&game.player, game.map);
 	allocate_rays(&game);

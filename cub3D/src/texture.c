@@ -29,26 +29,20 @@ void put_textures_in_array(t_text *text)
 
 void chose_tile_size(t_game *game, t_text *text)
 {
-	int i;
 	int j;
 	int tab;
 
 	put_textures_in_array(text);
-	i = 0;
-	while (i < 7)
+	j = 0;
+	while (j <= 7)
 	{
-		j = 0;
-		while (j < 7 - i)
+		if (text->textur[j] > text->textur[j + 1])
 		{
-			if (text->textur[j] > text->textur[j + 1])
-			{
-				tab = text->textur[j];
-				text->textur[j] = text->textur[j + 1];
-				text->textur[j + 1] = tab;
-			}
-			j++;
+			tab = text->textur[j];
+			text->textur[j] = text->textur[j + 1];
+			text->textur[j + 1] = tab;
 		}
-		i++;
+		j++;
 	}
 	game->map.tile_size = text->textur[0];
 }

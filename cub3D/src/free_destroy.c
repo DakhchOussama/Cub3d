@@ -8,29 +8,37 @@ void	free_mlx(t_game *game)
 		mlx_destroy_window(game->data.mlx, game->data.window);
 		mlx_clear_window(game->data.mlx, game->data.window);
 		free(game->map.my_map);
-		printf("Exit Game\n");
-		exit(0);
 	}
 }
 
 void exit_game(t_game *game)
 {
+	printf("Exit Game\n");
 	free_mlx(game);
+	free(game->ray);
+	exit (0);
 }
 
 void display_error(char *msg)
 {
 	printf("%s",msg);
-	exit(EXIT_FAILURE);
+	exit(0);
 }
 
 int	ft_cross(t_game *game)
 {
+	printf("Exit Game\n");
 	free_mlx(game);
+	free(game->ray);
+	exit(0);
 	return (0);
 }
 
-void destroyWindow(void *mlx, void *window)
+void free_check(char *str)
 {
-    mlx_destroy_window(mlx, window);
+	if (str)
+	{
+		free(str);
+		str = NULL;
+	}
 }
