@@ -17,10 +17,10 @@ int	key_press(int keyboard, t_game *game)
         moveplayer(game, &game->player.walkDirection , +1);
 	if (keyboard == 1)
         moveplayer(game, &game->player.walkDirection ,-1);
-    if (keyboard == 123)
-        moveplayer(game, &game->player.turnDirection ,-1);
     if (keyboard == 124)
         moveplayer(game, &game->player.turnDirection ,+1);
+    if (keyboard == 123)
+        moveplayer(game, &game->player.turnDirection ,-1);
 	if (keyboard == 53)
 		exit_game(game);
 	return (1);

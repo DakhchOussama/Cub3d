@@ -2,7 +2,7 @@
 
 void castRay(float rayAngle, int id, t_game *game)
 {
-    rayAngle = normalize_angle(rayAngle); //???
+    rayAngle = normalize_angle(rayAngle);
     game->raycast.isRayFacingDown = rayAngle > 0 && rayAngle < PI;
     game->raycast.isRayFacingUp = !game->raycast.isRayFacingDown;
     game->raycast.isRayFacingRight = rayAngle < 0.5 * PI || rayAngle > 1.5 * PI;

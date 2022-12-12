@@ -33,13 +33,13 @@ void setup(t_player *player, t_map map)
 	else if (map.position == 'W')
     	player->rotationAngle = PI;
     player->walkSpeed = 60;
-    player->turnSpeed = 20 * (PI / 180);
+    player->turnSpeed = 10 * (PI / 180);
 }
 
 int row_length_file(char **table)
 {
 	int i;
-
+	
 	i = 0;
 	while (table[i])
 		i++;

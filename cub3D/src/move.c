@@ -46,7 +46,7 @@ void move(t_game *game)
         game->player.y = newPlayerY;
     }
     newPlayerX = game->player.x + cos(game->player.rotationAngle + 0.5 * PI) * side_step;
-    newPlayerY = game->player.y + sin(game->player.rotationAngle + 0.5 * PI) * side_step;
+    newPlayerY = game->player.y + sin(game->player. rotationAngle + 0.5 * PI) * side_step;
     if (!has_collision(game, newPlayerX, newPlayerY, '1'))
     {
         game->player.x = newPlayerX;

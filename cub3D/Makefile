@@ -7,7 +7,6 @@ SRC = src/ft_split.c src/ft_strdup.c src/ft_strjoin.c  \
 	src/setup_map.c \
 	src/castRays.c \
 	src/texture.c \
-	src/checkWall.c \
 	src/read_file.c \
 	src/move.c \
 	src/render.c \

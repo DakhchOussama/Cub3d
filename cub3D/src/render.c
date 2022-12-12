@@ -3,7 +3,7 @@
 void draw_sky(t_game *game, t_pic *pic)
 {
 	pic->y = 0;
-	while (pic->y < pic->Wall_top_pixel)
+	while (pic->y < ((2 * pic->Wall_top_pixel) / 2))
 	{
 		my_mlx_pixel_put(&game->data, pic->i, pic->y, 0x34E2DF);
 		pic->y++;
@@ -16,8 +16,6 @@ void draw_wall(t_game *game, t_pic *pic, int wallStrpHeight)
 		pic->textOff_X = (int)game->ray[pic->i].wallHitY % game->map.tile_size;
 	else
 		pic->textOff_X = (int)game->ray[pic->i].wallHitX % game->map.tile_size;
-	pic->textOff_X *= game->text.north.width / game->map.tile_size;
-	pic->y = pic->Wall_top_pixel;
 	if (game->ray[pic->i].ray_up && !game->ray[pic->i].wasHitVertical)
 		game->text.now = game->text.north;
 	else if (game->ray[pic->i].ray_down && !game->ray[pic->i].wasHitVertical)
@@ -26,10 +24,11 @@ void draw_wall(t_game *game, t_pic *pic, int wallStrpHeight)
 		game->text.now = game->text.east;
 	if (game->ray[pic->i].ray_left && game->ray[pic->i].wasHitVertical)
 		game->text.now = game->text.west;
+	pic->y = pic->Wall_top_pixel;
 	while (pic->y < pic->Wall_bottom_pixel)
 	{
 		pic->distance_from_top = pic->y + (wallStrpHeight / 2) - (game->map.window_height / 2);
-		pic->textOff_Y = pic->distance_from_top * ((float)game->text.north.height / wallStrpHeight);
+		pic->textOff_Y = pic->distance_from_top * ((float)game->text.now.height / wallStrpHeight);
 		pic->color = my_mlx_pixel_pick(&game->text.now, pic->textOff_X, pic->textOff_Y);
 		my_mlx_pixel_put(&game->data, pic->i, pic->y, pic->color);
 		pic->y++;

@@ -13,8 +13,8 @@ void playerPosition(t_player *player, t_map map)
         {
             if (map.my_map[i][j] == 'N' || map.my_map[i][j] == 'S' || map.my_map[i][j] == 'E' || map.my_map[i][j] == 'W')
             {
-                player->x = j * map.tile_size;
-                player->y = i * map.tile_size;
+                player->x = j * map.tile_size + (map.tile_size / 2);
+                player->y = i * map.tile_size + (map.tile_size / 2);
             }
             j++;
         }
