@@ -6,7 +6,7 @@ void playerPosition(t_player *player, t_map map)
     int j;
 
     i = 0;
-    while (i < map.num_rows)
+    while (i < map.height)
     {
         j = 0;
         while (j < map.num_cols)

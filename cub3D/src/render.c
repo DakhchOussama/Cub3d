@@ -3,7 +3,7 @@
 void draw_sky(t_game *game, t_pic *pic)
 {
 	pic->y = 0;
-	while (pic->y < ((2 * pic->Wall_top_pixel) / 2))
+	while (pic->y < pic->Wall_top_pixel)
 	{
 		my_mlx_pixel_put(&game->data, pic->i, pic->y, 0x34E2DF);
 		pic->y++;
@@ -54,7 +54,7 @@ void Map3D(t_game *game)
 	pic.i = 0;
 	while (pic.i < num_rays)
 	{
-		pic.correctDistance = game->ray[pic.i].distance * cos(game->ray[pic.i].rayAngle - game->player.rotationAngle); // fishbowl distrotion
+		pic.correctDistance = game->ray[pic.i].distance * cos(game->ray[pic.i].rayAngle - game->player.rotationAngle);
 		pic.distanceprojplan = (game->map.window_width / 2) / tan(FOV / 2);
 		pic.projectionWall = (game->map.tile_size / pic.correctDistance) * pic.distanceprojplan;
 		wallStripHeight = (int)pic.projectionWall;

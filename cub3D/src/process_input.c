@@ -43,12 +43,6 @@ int key_release(int keyboard, t_game *game)
 	return (1);
 }
 
-// static int refresh(t_game *game)
-// {
-// 	render(game);
-// 	return (1);
-// }
-
 void process_input(t_game *game)
 {
     mlx_hook(game->data.window, 17, 0L, ft_cross, game);

@@ -4,9 +4,7 @@ float normalize_angle(float angle)
 {
     angle = remainder(angle, TWO_PI);
     if (angle < 0)
-    {
         angle = TWO_PI + angle;
-    }
     return (angle);
 }
 

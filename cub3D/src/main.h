@@ -33,23 +33,25 @@ typedef struct s_data
     int tickslastframe;
 } t_data;
 
-typedef struct s_map
+typedef	struct s_map
 {
-    int tile_size;
-    int num_rows;
-    int num_cols;
-    int window_width;
-    int window_height;
-	int num_rows_file;
-    int wall;
-    int player;
-    char **my_map;
-	char position;
-	char *NO;
-	char *SO;
-	char *WE;
-	char *EA;
-} t_map;
+	int		C;
+	int		F;
+	int		only_map_len;
+	int		len;
+	char	**my_map;
+	char	**only_map;
+    char	*NO;
+    char	*SO;
+    char	*WE;
+    char	*EA;
+	int		height;
+	int		window_width;
+    int		window_height;
+	char	position;
+	int		tile_size;
+	int		num_cols;
+}		t_map;
 
 typedef struct s_player
 {
@@ -146,7 +148,9 @@ typedef struct s_game
 	t_pic		pic;
 	t_img		img;
 	t_text		text;
+
 } t_game;
+
 
 //free function
 void    exit_game(t_game *game);

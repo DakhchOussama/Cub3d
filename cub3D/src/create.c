@@ -8,7 +8,7 @@ void CreateWindow(t_data *mlx, t_map map)
     mlx->window = mlx_new_window(mlx->mlx, map.window_width, map.window_height, "Cub3D");
     if (!mlx->window)
         display_error("Error create MLX \n");
-    mlx->img = mlx_new_image(mlx->mlx , map.window_width + 1, map.window_height + 1);
+    mlx->img = mlx_new_image(mlx->mlx , map.window_width, map.window_height);
 	if (!mlx->img)
         display_error("Error create Image \n");
     mlx->addr = mlx_get_data_addr(mlx->img, &mlx->bpp, &mlx->zl, &mlx->ed);

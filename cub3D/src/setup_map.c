@@ -39,7 +39,7 @@ void setup(t_player *player, t_map map)
 int row_length_file(char **table)
 {
 	int i;
-	
+
 	i = 0;
 	while (table[i])
 		i++;
@@ -51,13 +51,13 @@ void takeSize(char **table , t_map *map)
     int i;
 
     i = 0;
-    map->num_rows = row_length(table);
-	map->num_rows_file = row_length_file(table);
-    if (map->num_rows == 0)
+    map->height = row_length(table);
+	map->len = row_length_file(table);
+    if (map->height == 0)
         display_error("free Map");
     map->num_cols = ft_strlen(table[5]);
-    map->tile_size = 60; //????
-    map->window_height = map->num_rows * map->tile_size; // 780
+    map->tile_size = 60;
+    map->window_height = map->height * map->tile_size; // 780
     map->window_width = map->num_cols * map->tile_size; // 1200
 }
 
@@ -123,7 +123,7 @@ void fillMap(char *line, char *buff, t_map *map)
 		}
 		else if (line[i] == 'E')
 		{
-			 map->position = 'E';
+			map->position = 'E';
 			buff[i] = 'E';
 		}
 		else if (line[i] == 'W')
@@ -148,13 +148,13 @@ void    setup_map(t_map *map, char *table)
         display_error("Error in Map");
 	verify_data(str, map);
     takeSize(str, map);
-    map->my_map = (char **)malloc((map->num_rows) * sizeof(char *));
+    map->my_map = (char **)malloc((map->height) * sizeof(char *));
     if (!map->my_map)
         display_error("Map Allocation error\n");
-    map->my_map[map->num_rows] = NULL;
+    map->my_map[map->height] = NULL;
     i = 4;
 	j = 0;
-    while (i < map->num_rows_file && j < map->num_rows)
+    while (i < map->len && j < map->height)
     {
         map->my_map[j] = (char *) malloc((map->num_cols) * sizeof(char));
         if (!map->my_map[j])

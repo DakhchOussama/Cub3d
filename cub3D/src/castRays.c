@@ -24,7 +24,7 @@ void castAllRays(t_game *game)
     while (columnId < num_rays)
     {
         castRay(rayAngle, columnId, game);
-        rayAngle += FOV / num_rays; // Add the angle increment so the ray moves to the right
+        rayAngle += FOV / num_rays;
         columnId++;
     }
 }
