@@ -15,6 +15,12 @@ int row_length(char **table)
     return (compt);
 }
 
+void playerPosition(t_player *player, t_map map)
+{
+    player->x = map.stock_j * map.tile_size + (map.tile_size / 2);
+    player->y = map.stock_i * map.tile_size + (map.tile_size / 2);
+}
+
 void setup(t_player *player, t_map map)
 {
     // initialize and setup game objects
@@ -33,7 +39,7 @@ void setup(t_player *player, t_map map)
 	else if (map.position == 'W')
     	player->rotationAngle = PI;
     player->walkSpeed = 60;
-    player->turnSpeed = 10 * (PI / 180);
+    player->turnSpeed = 5 * (PI / 180);
 }
 
 int row_length_file(char **table)

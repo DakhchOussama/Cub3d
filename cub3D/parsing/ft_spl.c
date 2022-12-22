@@ -6,11 +6,11 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:39:56 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/12/16 20:16:05 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/12/19 21:10:32 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../main.h"
+#include "../raycasting/main.h"
 
 int	char_is_separator(char c, char *charset)
 {

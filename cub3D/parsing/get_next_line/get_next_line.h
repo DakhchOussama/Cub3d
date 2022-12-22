@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/09 03:02:00 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/28 21:32:44 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/12/19 22:57:33 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,4 @@ char	*lire_ligne(char *buffers);
 char	*rest(char *buffers);
 char	*get_next_line(int fd);
 
-// #endif
+//  #endif

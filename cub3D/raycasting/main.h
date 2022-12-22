@@ -9,6 +9,8 @@
 #include <math.h>
 #include <stdlib.h>
 #include <float.h>
+#include "../libft/libft.h"
+#include "../parsing/get_next_line/get_next_line.h"
 
 #define TRUE 1
 #define FALSE 0
@@ -51,7 +53,9 @@ typedef	struct s_map
 	char	position;
 	int		tile_size;
 	int		num_cols;
-}		t_map;
+	int		stock_i;
+	int		stock_j;
+}			t_map;
 
 typedef struct s_player
 {
@@ -66,7 +70,7 @@ typedef struct s_player
     float walkSpeed;
     float end_line;
     float turnSpeed;
-} t_player;
+}			t_player;
 
 typedef struct s_ray
 {
@@ -184,16 +188,6 @@ void    takeSize(char **table , t_map *map);
 int		key_press(int keyboard, t_game *game);
 int		key_release(int keyboard, t_game *game);
 
-//libftfunction
-char	*ft_strdup(const char	*s1);
-int     ft_strlen(const char	*str);
-char	*ft_strjoin(char	*s1, char	*s2);
-size_t	ft_strlcpy(char	*dst, const char	*src, size_t	size);
-char	**free_t(unsigned int i, char **tab);
-char	**ft_split(const char *s, char c);
-int		ft_strncmp(const char *s1, const char *s2, size_t n);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
-
 //ray-cast
 float normalize_angle(float angle);
 void castRay(float rayAngle, int id, t_game *game);
@@ -212,4 +206,15 @@ void allocate_rays(t_game *game);
 void put_textures_in_array(t_text *text);
 int setup_texture(t_game *game, t_text *text);
 void chose_tile_size(t_game *game, t_text *text);
+//parsing
+int	ft_parsing(t_map *pars, char **av);
+void	*pars_Map(t_map *stock, char **av);
+int	check_texture(t_map *text, char *map);
+
+//parsing
+int		check_extention(char *av);
+int		ft_parsing(t_map *pars, char **av);
+char	**ft_spl(char *str, char *spl);
+int	ft_parsing_frist(t_game *game, int ac, char **av);
+
 #endif
