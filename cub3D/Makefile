@@ -2,22 +2,21 @@ NAME = cub3D
 CC = gcc
 LIB = libft/libft.a
 CFLAGS = -Wall -Werror -Wextra
-SRC =	src/free_destroy.c \
+SRC =	raycasting/free_destroy.c \
 		parsing/get_next_line/get_next_line.c \
 		parsing/get_next_line/get_next_line_utils.c \
 		parsing/check_map.c \
 		parsing/ft_spl.c \
-		src/process_input.c \
-		src/setup_map.c \
-		src/castRays.c \
-		src/texture.c \
-		src/read_file.c \
-		src/move.c \
-		src/render.c \
-		src/draw.c \
-		src/create.c \
-		src/hori_vert-Intercestion.c \
-		src/main.c
+		raycasting/process_input.c \
+		raycasting/setup_map.c \
+		raycasting/castRays.c \
+		raycasting/texture.c \
+		raycasting/read_file.c \
+		raycasting/move.c \
+		raycasting/render.c \
+		raycasting/create.c \
+		raycasting/hori_vert-Intercestion.c \
+		raycasting/main.c
 
 
 OBJECTS = $(SRC:.c=.o)

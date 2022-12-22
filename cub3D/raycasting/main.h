@@ -53,6 +53,8 @@ typedef	struct s_map
 	char	position;
 	int		tile_size;
 	int		num_cols;
+	int		stock_i;
+	int		stock_j;
 }			t_map;
 
 typedef struct s_player
@@ -186,16 +188,6 @@ void    takeSize(char **table , t_map *map);
 int		key_press(int keyboard, t_game *game);
 int		key_release(int keyboard, t_game *game);
 
-//libftfunction
-// char	*ft_strdup(char	*s1);
-// int     ft_strlen(char	*str);
-// char	*ft_strjoin(char	*s1, char	*s2);
-size_t	ft_strlcpy(char	*dst, const char	*src, size_t	size);
-// char	**free_t(unsigned int i, char **tab);
-// char	**ft_split(const char *s, char c);
-// int		ft_strncmp(const char *s1, const char *s2, size_t n);
-// char	*ft_substr(char *s, unsigned int start, size_t len);
-
 //ray-cast
 float normalize_angle(float angle);
 void castRay(float rayAngle, int id, t_game *game);
@@ -223,6 +215,6 @@ int	check_texture(t_map *text, char *map);
 int		check_extention(char *av);
 int		ft_parsing(t_map *pars, char **av);
 char	**ft_spl(char *str, char *spl);
-int		ft_parsing_frist(int ac, char **av);
+int	ft_parsing_frist(t_game *game, int ac, char **av);
 
 #endif

@@ -13,7 +13,7 @@ void	free_mlx(t_game *game)
 
 void exit_game(t_game *game)
 {
-	printf("Exit Game\n");
+	printf("\nExit Game\n");
 	free_mlx(game);
 	free(game->ray);
 	exit (0);
@@ -27,7 +27,7 @@ void display_error(char *msg)
 
 int	ft_cross(t_game *game)
 {
-	printf("Exit Game\n");
+	printf("\nExit Game\n");
 	free_mlx(game);
 	free(game->ray);
 	exit(0);

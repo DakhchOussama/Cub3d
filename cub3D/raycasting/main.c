@@ -2,23 +2,29 @@
 
 int main(int ac, char **av)
 {
-    int         fd;
     t_game      game;
-    char        *table;
 
-	ft_parsing_frist(ac, av);
-    fd = open(av[1], O_RDONLY);
-    if (fd < 0)
-        display_error("Error in File Descriptor\n");
-    table = read_file(fd);
-    if (!table)
-        display_error("Error in read File\n");
-    setup_map(&game.map, table);
+	ft_parsing_frist(&game, ac, av);
+	game.map.tile_size = 60;
+	game.map.window_height = game.map.height * game.map.tile_size;
+	game.map.window_width = game.map.num_cols * game.map.tile_size;
     CreateWindow(&game.data, game.map);
 	if (setup_texture(&game, &game.text))
 	{
 		free_mlx(&game);
 		display_error("error in texture");
+	}
+	int i = 0;
+	int j;
+	while (game.map.my_map[i] != NULL)
+	{
+		j = 0;
+		while (game.map.my_map[i][j] != '\0')
+		{
+			printf("%c",game.map.my_map[i][j]);
+			j++;
+		}
+		i++;
 	}
 	chose_tile_size(&game, &game.text);
     setup(&game.player, game.map);

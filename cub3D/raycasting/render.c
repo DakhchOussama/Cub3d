@@ -5,7 +5,7 @@ void draw_sky(t_game *game, t_pic *pic)
 	pic->y = 0;
 	while (pic->y < pic->Wall_top_pixel)
 	{
-		my_mlx_pixel_put(&game->data, pic->i, pic->y, 0x34E2DF);
+		my_mlx_pixel_put(&game->data, pic->i, pic->y, game->map.C);
 		pic->y++;
 	}
 }
@@ -39,7 +39,7 @@ void ground(t_game *game, t_pic *pic)
 {
 	while (pic->y < game->map.window_height)
 	{
-		my_mlx_pixel_put(&game->data, pic->i, pic->y, 0x5C5069);
+		my_mlx_pixel_put(&game->data, pic->i, pic->y, game->map.F);
 		pic->y++;
 	}
 }
@@ -69,6 +69,7 @@ void Map3D(t_game *game)
 		ground(game, &pic);
 		pic.i++;
 	}
+
 }
 
 void render(t_game *game)

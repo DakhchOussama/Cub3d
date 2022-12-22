@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/main.h"
+#include "../raycasting/main.h"
 
 int	char_is_separator(char c, char *charset)
 {

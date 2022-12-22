@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../src/main.h"
+#include "../raycasting/main.h"
 #include <stdio.h>
 #include <mlx.h>
 #include <fcntl.h>
@@ -161,6 +161,18 @@ int	check_middle_lines_norm(t_map *my_map, int *i, int *j)
 	return (0);
 }
 
+void verify_place(char c, t_map *map)
+{
+	if (c == 'N')
+		map->position = 'N';
+	else if (c == 'S')
+		map->position = 'S';
+	else if (c == 'E')
+		map->position = 'E';
+	if (c == 'W')
+		map->position = 'W';
+}
+
 void	*check_middle_lines(t_map *my_map, int nbr)
 {
 	int	i;
@@ -175,7 +187,12 @@ void	*check_middle_lines(t_map *my_map, int nbr)
 			if (my_map->only_map[i][j] == 'N' || \
 				my_map->only_map[i][j] == 'S' || \
 				my_map->only_map[i][j] == 'E' || my_map->only_map[i][j] == 'W')
+			{
+				my_map->stock_i = i;
+				my_map->stock_j = j;
+				verify_place(my_map->only_map[i][j], my_map);
 				nbr++;
+			}
 			check_middle_lines_norm(my_map, &i, &j);
 			j++;
 		}
@@ -237,6 +254,7 @@ void	*pars_map_norm(t_map *stock, int i, char **av)
 	int		fd;
 	int		j;
 	char	*str;
+	size_t	longest = 0;
 
 	j = 0;
 	fd = open(av[1], O_RDWR);
@@ -253,9 +271,12 @@ void	*pars_map_norm(t_map *stock, int i, char **av)
 			continue ;
 		}
 		stock->only_map[j] = str;
+		if(ft_strlen(stock->only_map[j]) > longest)
+			longest = ft_strlen(stock->only_map[j]);
 		i++;
 		j++;
 	}
+	stock->num_cols = longest - 1;
 	stock->only_map[j] = NULL;
 	stock->height = j;
 	return (NULL);
@@ -328,7 +349,6 @@ int	check_texture(t_map *text, char *map)
 	else if (ft_strlen(spl[0]) == 1 && text->my_map[0][0] != '0' \
 		&& text->my_map[0][0] != '1')
 		check_c_and_f(text, map);
-	free_2d(spl);
 	return (0);
 }
 
@@ -385,14 +405,19 @@ int	ft_parsing(t_map *pars, char **av)
 	ft_parsing_norm(pars, av);
 	i = -1;
 	while (pars->my_map[++i])
-		check_texture(pars, pars->my_map[i]);
+	{
+		if (pars->my_map[i][0] == '\n')
+			i++;
+		else
+			check_texture(pars, pars->my_map[i]);
+	}
+	printf("EA : %s\t WE : %s NO: %s \t SO : %s\n",pars->EA, pars->WE, pars->NO, pars->SO);
 	return (0);
 }
 
-int	ft_parsing_frist(int ac, char **av)
+int	ft_parsing_frist(t_game *game, int ac, char **av)
 {
 	int		fd;
-	t_map	pars;
 	if (ac != 2)
 		return (printf("Error\nCheking the arguments"), 1);
 	fd = open(av[1], O_RDWR);
@@ -400,9 +425,8 @@ int	ft_parsing_frist(int ac, char **av)
 	close(fd);
 	if (check_extention(av[1]))
 		display_error("Error\nExtention");
-	if (ft_parsing(&pars, av))
+	if (ft_parsing(&game->map, av))
 		return (1);
-	free_2d(pars.my_map);
-	free_2d(pars.only_map);
+	game->map.my_map = game->map.only_map;
 	return (0);
 }
