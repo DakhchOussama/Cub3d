@@ -55,6 +55,7 @@ typedef	struct s_map
 	int		num_cols;
 	int		stock_i;
 	int		stock_j;
+	char	**spl;
 }			t_map;
 
 typedef struct s_player
@@ -216,5 +217,5 @@ int		check_extention(char *av);
 int		ft_parsing(t_map *pars, char **av);
 char	**ft_spl(char *str, char *spl);
 int	ft_parsing_frist(t_game *game, int ac, char **av);
-
+void	free_2d(char **tab);
 #endif

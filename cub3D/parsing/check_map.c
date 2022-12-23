@@ -61,19 +61,19 @@ void	init(t_map *texturs)
 int	stock_texturs(t_map *text, char **spl)
 {
 	if (!ft_strcmp(spl[0], "NO") && text->NO == NULL)
-		text->NO = spl[1];
+		text->NO = ft_strdup(spl[1]);
 	else if (!ft_strcmp(spl[0], "NO") && text->NO)
 		return (printf("Error:\nduplicated\n"), free_2d(spl), exit(1), -1);
 	if (!ft_strcmp(spl[0], "SO") && text->SO == NULL)
-		text->SO = spl[1];
+		text->SO =  ft_strdup(spl[1]);
 	else if (!ft_strcmp(spl[0], "SO") && text->SO)
 		return (printf("Error:\nduplicated\n"), free_2d(spl), exit(1), -1);
 	if (!ft_strcmp(spl[0], "WE") && text->WE == NULL)
-		text->WE = spl[1];
+		text->WE =  ft_strdup(spl[1]);
 	else if (!ft_strcmp(spl[0], "WE") && text->WE)
 		return (printf("Error:\nduplicated\n"), free_2d(spl), exit(1), -1);
 	if (!ft_strcmp(spl[0], "EA") && text->EA == NULL)
-		text->EA = spl[1];
+		text->EA =  ft_strdup(spl[1]);
 	else if (!ft_strcmp(spl[0], "EA") && text->EA)
 		return (printf("Error:\nduplicated\n"), free_2d(spl), exit(1), -1);
 	return (1);
@@ -346,9 +346,9 @@ int	check_texture_norm(t_map *text, char **spl)
 
 int	check_texture(t_map *text, char *map)
 {
-	char	**spl;
 	int		i;
 
+	char **spl;
 	i = 0;
 	if (map[i] == '\n')
 		return (0);
@@ -362,9 +362,10 @@ int	check_texture(t_map *text, char *map)
 	if (ft_strlen(spl[0]) == 2 && text->my_map[0][0] != '1' \
 		&& text->my_map[0][0] != '0')
 			check_texture_norm(text, spl);
-	else if (ft_strlen(spl[0]) == 1 && text->my_map[0][0] != '0' \
+	else if (text->my_map[0][0] != '0' \
 		&& text->my_map[0][0] != '1')
 		check_c_and_f(text, map);
+	free_2d(spl);
 	return (0);
 }
 
@@ -424,6 +425,10 @@ int	ft_parsing(t_map *pars, char **av)
 	{
 		check_texture(pars, pars->my_map[i]);
 	}
+	printf("[%s]\n", pars->NO);
+	printf("[%s]\n", pars->SO);
+	printf("[%s]\n", pars->WE);
+	printf("[%s]\n", pars->EA);
 	// 	int i = 0;
 	// int j;
 	// while (pars->only_map[i] != NULL)
@@ -452,6 +457,7 @@ int	ft_parsing_frist(t_game *game, int ac, char **av)
 		display_error("Error\nExtention");
 	if (ft_parsing(&game->map, av))
 		return (1);
+	free_2d(game->map.my_map);
 	game->map.my_map = game->map.only_map;
 	i = 0;
 	while (game->map.my_map[i])

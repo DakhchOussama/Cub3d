@@ -14,23 +14,12 @@ int main(int ac, char **av)
 		free_mlx(&game);
 		display_error("error in texture");
 	}
-	int i = 0;
-	int j;
-	while (game.map.my_map[i] != NULL)
-	{
-		j = 0;
-		while (game.map.my_map[i][j] != '\0')
-		{
-			printf("%c",game.map.my_map[i][j]);
-			j++;
-		}
-		i++;
-	}
 	chose_tile_size(&game, &game.text);
     setup(&game.player, game.map);
 	allocate_rays(&game);
     render(&game);
     process_input(&game);
     mlx_loop(game.data.mlx);
+	free_2d(game.map.only_map);
     return (0);
 }
