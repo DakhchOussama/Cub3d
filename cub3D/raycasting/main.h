@@ -207,15 +207,23 @@ void allocate_rays(t_game *game);
 void put_textures_in_array(t_text *text);
 int setup_texture(t_game *game, t_text *text);
 void chose_tile_size(t_game *game, t_text *text);
-//parsing
-int	ft_parsing(t_map *pars, char **av);
-void	*pars_Map(t_map *stock, char **av);
-int	check_texture(t_map *text, char *map);
 
 //parsing
 int		check_extention(char *av);
 int		ft_parsing(t_map *pars, char **av);
 char	**ft_spl(char *str, char *spl);
-int	ft_parsing_frist(t_game *game, int ac, char **av);
+int		ft_parsing_frist(t_game *game, int ac, char **av);
 void	free_2d(char **tab);
+void	*pars_map(t_map *stock, char **av);
+int		ft_error_fd(int fd);
+int		check_extention(char *av);
+void	init(t_map *texturs);
+void	*first_and_last(t_map *my_map);
+void	verify_place(char c, t_map *map);
+int		check_texture(t_map *text, char *map);
+int		stock_texturs(t_map *text, char **spl);
+void	*check_c_and_f(t_map *text, char *map);
+void	init(t_map *texturs);
+void	*line_c_and_f(char **spl, char *map);
+int		ft_strsearch(char *str);
 #endif
