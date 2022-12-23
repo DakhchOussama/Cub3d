@@ -64,7 +64,11 @@ void horizontal_intersection2(t_game *game , int max_width, int max_height)
         {
             game->horizantal.wallHitX = game->horizantal.nextTouchX;
             game->horizantal.wallHitY = game->horizantal.nextTouchY;
-            game->horizantal.WallContent = game->map.my_map[(int)floor(game->horizantal.ytocheck / game->map.tile_size)][(int)floor(game->vertical.xtocheck / game->map.tile_size)];
+			size_t tmp = 0;
+			if ((int)floor(game->horizantal.ytocheck / game->map.tile_size) < game->map.height && (int)floor(game->horizantal.ytocheck / game->map.tile_size) > 0)
+				tmp = ft_strlen(game->map.my_map[(int)floor(game->horizantal.ytocheck / game->map.tile_size)]);
+			if (tmp > (size_t)floor(game->vertical.xtocheck / game->map.tile_size))
+            	game->horizantal.WallContent = game->map.my_map[(int)floor(game->horizantal.ytocheck / game->map.tile_size)][(int)floor(game->vertical.xtocheck / game->map.tile_size)];
             game->horizantal.foundWallHit = TRUE;
             break;
         }

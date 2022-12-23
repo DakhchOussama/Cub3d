@@ -1,7 +1,7 @@
 NAME = cub3D
 CC = gcc
 LIB = libft/libft.a
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 SRC =	raycasting/free_destroy.c \
 		parsing/get_next_line/get_next_line.c \
 		parsing/get_next_line/get_next_line_utils.c \

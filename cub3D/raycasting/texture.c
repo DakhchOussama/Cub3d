@@ -34,7 +34,7 @@ void chose_tile_size(t_game *game, t_text *text)
 
 	put_textures_in_array(text);
 	j = 0;
-	while (j <= 7)
+	while (j < 7)
 	{
 		if (text->textur[j] > text->textur[j + 1])
 		{

@@ -5,8 +5,8 @@ void	free_mlx(t_game *game)
 	if (game->data.mlx)
 	{
 		mlx_destroy_image(game->data.mlx, game->data.img);
-		mlx_destroy_window(game->data.mlx, game->data.window);
 		mlx_clear_window(game->data.mlx, game->data.window);
+		mlx_destroy_window(game->data.mlx, game->data.window);
 		free(game->map.my_map);
 	}
 }
