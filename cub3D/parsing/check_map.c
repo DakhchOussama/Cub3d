@@ -41,6 +41,7 @@ void	ft_parsing_norm(t_map *pars, char **av)
 		pars->my_map[i] = get_next_line(fd);
 		i++;
 	}
+	close(fd);
 	pars->my_map[i] = NULL;
 	i = -1;
 	init(pars);
