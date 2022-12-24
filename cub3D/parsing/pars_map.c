@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/16 23:49:24 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/12/23 23:55:50 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/12/24 16:17:58 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,10 @@ int	check_middle_lines_norm(t_map *my_map, int *i, int *j)
 	return (0);
 }
 
-void	*check_middle_lines(t_map *my_map, int nbr)
+void	*check_middle_lines(t_map *my_map, int nbr, int i)
 {
-	int	i;
 	int	j;
 
-	i = -1;
 	while (my_map->only_map[++i])
 	{
 		j = 0;
@@ -87,7 +85,7 @@ void	*first_and_last(t_map *my_map)
 				free(trim), free_2d(my_map->only_map), exit(1), NULL);
 		free(trim);
 	}
-	check_middle_lines(my_map, 0);
+	check_middle_lines(my_map, 0, -1);
 	return (NULL);
 }
 
@@ -101,66 +99,9 @@ int	pars_map_norm_again(char *str)
 	return (0);
 }
 
-void	*pars_map_norm(t_map *stock, int i, char **av)
+void	pars_map_norm_2(t_map *stock, int *j)
 {
-	int		fd;
-	int		j;
-	char	*str;
-	size_t	longest = 0;
-
-	j = 0;
-	fd = open(av[1], O_RDWR);
-	ft_error_fd(fd);
-	while (i <= stock->only_map_len)
-	{
-		str = get_next_line(fd);
-		if (str == NULL)
-			break ;
-		if (pars_map_norm_again(str) == 1)
-		{
-			i++;
-			free(str);
-			continue ;
-		}
-		stock->only_map[j] = str;
-		if(ft_strlen(stock->only_map[j]) > longest)
-			longest = ft_strlen(stock->only_map[j]);
-		i++;
-		j++;
-	}
-	stock->num_cols = longest - 1;
-	stock->only_map[j] = NULL;
-	stock->height = j;
-	return (NULL);
-}
-
-void	*pars_map(t_map *stock, char **av)
-{
-	int		fd;
-	char	*line;
-
-	fd = open(av[1], O_RDWR);
-	ft_error_fd(fd);
-	line = get_next_line(fd);
-	while (line)
-	{
-		stock->only_map_len++;
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	free(line);
-	if (stock->only_map_len == 0)
-		return (printf("Error\nEmpty only_map"), exit(1), NULL);
-	stock->only_map = (char **)malloc(sizeof(char *) * stock->only_map_len + 1);
-	if (!stock->only_map)
-		return (printf("Error:\nonly_map is not allocated\n"), exit(1), NULL);
-	pars_map_norm(stock, 0, av);
-	// int k = 0;/////////////////////////////////////////////////////////////
-	// while (stock->only_map[k] != NULL)
-	// {
-	// 	printf("%s",stock->only_map[k]);
-	// 	k++;
-	// }
-	return (NULL);
-}
+	stock->num_cols = stock->longest - 1;
+	stock->only_map[*j] = NULL;
+	stock->height = *j;
+}	

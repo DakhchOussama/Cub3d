@@ -10,6 +10,7 @@ SRC =	raycasting/free_destroy.c \
 		parsing/utils_map.c \
 		parsing/check_texture.c \
 		parsing/ft_spl.c \
+		parsing/utils_map2.c \
 		raycasting/process_input.c \
 		raycasting/setup_map.c \
 		raycasting/castRays.c \

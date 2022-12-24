@@ -16,10 +16,10 @@ void exit_game(t_game *game)
 	printf("\nExit Game\n");
 	free_mlx(game);
 	free(game->ray);
-	free(game->map.EA);
-	free(game->map.WE);
-	free(game->map.NO);
-	free(game->map.SO);
+	free(game->map.ea);
+	free(game->map.we);
+	free(game->map.no);
+	free(game->map.so);
 	exit (0);
 }
 

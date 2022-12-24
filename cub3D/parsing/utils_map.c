@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/23 23:51:41 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/12/24 00:17:34 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/12/24 16:46:18 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,14 @@ void	free_2d(char **tab)
 
 void	init(t_map *texturs)
 {
-	texturs->NO = NULL;
-	texturs->SO = NULL;
-	texturs->WE = NULL;
-	texturs->EA = NULL;
-	texturs->C = 0;
-	texturs->F = 0;
+	texturs->no = NULL;
+	texturs->so = NULL;
+	texturs->we = NULL;
+	texturs->ea = NULL;
+	texturs->c = 0;
+	texturs->f = 0;
 	texturs->only_map_len = 0;
+	texturs->longest = 0;
 }
 
 int	ft_error_fd(int fd)

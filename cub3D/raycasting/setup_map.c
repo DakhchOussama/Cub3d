@@ -80,13 +80,13 @@ void put_text(char **line, int num, t_map *map)
 		{
 			i++;
 			if (num == 0)
-				map->NO = ft_substr(line[num], i, length);
+				map->no = ft_substr(line[num], i, length);
 			else if (num == 1)
-				map->SO = ft_substr(line[num], i, length);
+				map->so = ft_substr(line[num], i, length);
 			else if (num == 2)
-				map->WE = ft_substr(line[num], i, length);
+				map->we = ft_substr(line[num], i, length);
 			else if (num == 3)
-				map->EA = ft_substr(line[num], i, length);
+				map->ea = ft_substr(line[num], i, length);
 		}
 		i++;
 	}
