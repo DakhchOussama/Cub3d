@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 20:53:05 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/12/19 23:38:55 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:32:29 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ size_t	ft_strlen(char *str)
 
 	i = 0;
 	if (!str)
-		return 0;
-	while(str[i])
+		return (0);
+	while (str[i])
 		i++;
 	return (i);
 }

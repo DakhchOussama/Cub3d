@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/22 21:04:17 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/11/28 23:02:51 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/12/24 18:31:35 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	i;
-	unsigned char *arr1;
-	unsigned char *arr2;
+	size_t			i;
+	unsigned char	*arr1;
+	unsigned char	*arr2;
 
 	i = 0;
 	arr1 = (unsigned char *)s1;
