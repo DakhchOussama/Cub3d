@@ -10,7 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+<<<<<<< HEAD
 #include "main.h"
+=======
+void draw_sky(t_game *game, t_pic *pic)
+{
+	pic->y = 0;
+	while (pic->y < pic->Wall_top_pixel)
+	{
+		my_mlx_pixel_put(&game->data, pic->i, pic->y, game->map.c);
+		pic->y++;
+	}
+}
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 
 void	check_right_left(t_game *game)
 {
@@ -26,8 +38,13 @@ void	check_right_left(t_game *game)
 	if (!has_collision(game, new_player_x, new_player_y, '1') \
 		&& !wall_collection(game, new_player_x, new_player_y, '1'))
 	{
+<<<<<<< HEAD
 		game->player.x = new_player_x;
 		game->player.y = new_player_y;
+=======
+		my_mlx_pixel_put(&game->data, pic->i, pic->y, game->map.f);
+		pic->y++;
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 	}
 }
 

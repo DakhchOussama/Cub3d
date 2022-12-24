@@ -29,6 +29,10 @@
 # define PI 3.14159265359
 # define TWO_PI 6.28318530718
 # define FOV 1.0472
+<<<<<<< HEAD
+=======
+# define MINIMAP_SCALE_FACTOR 0.3
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 
 typedef struct s_data
 {
@@ -73,6 +77,7 @@ typedef struct s_player
 	float	y;
 	float	width;
 	float	height;
+<<<<<<< HEAD
 	int		turn_direction;
 	int		walk_direction;
 	int		walk_direction_side;
@@ -80,10 +85,20 @@ typedef struct s_player
 	float	walk_speed;
 	float	end_line;
 	float	turn_speed;
+=======
+	int		turnDirection;
+	int		walkDirection;
+	int		walkDirection_side;
+	float	rotationAngle;
+	float	walkSpeed;
+	float	end_line;
+	float	turnSpeed;
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 }			t_player;
 
 typedef struct s_ray
 {
+<<<<<<< HEAD
 	float	ray_angle;
 	float	wall_hit_x;
 	float	wall_hit_y;
@@ -96,17 +111,38 @@ typedef struct s_ray
 	int		found_wall_hit;
 	float	next_touch_x;
 	float	next_touch_y;
+=======
+	float	rayAngle;
+	float	wallHitX;
+	float	wallHitY;
+	float	distance;
+	int		wasHitVertical;
+	int		isRayFacingUp;
+	int		isRayFacingDown;
+	int		isRayFacingLeft;
+	int		isRayFacingRight;
+	int		foundWallHit;
+	float	nextTouchX;
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 	int		ray_up;
 	int		ray_down;
 	int		ray_left;
 	int		ray_right;
+<<<<<<< HEAD
+=======
+	float	nextTouchY;
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 	float	xtocheck;
 	float	ytocheck;
 	float	xintercept;
 	float	yintercept;
 	float	xstep;
 	float	ystep;
+<<<<<<< HEAD
 	int		wall_content;
+=======
+	int		WallContent;
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 }			t_ray;
 
 typedef struct s_pic
@@ -118,6 +154,7 @@ typedef struct s_pic
 	float	width;
 	float	height;
 	float	distanceprojplan;
+<<<<<<< HEAD
 	float	correct_distance;
 	float	projection_wall;
 	int		wall_top_pixel;
@@ -125,6 +162,15 @@ typedef struct s_pic
 	int		distance_from_top;
 	int		textoffset_x;
 	int		textoffset_y;
+=======
+	float	correctDistance;
+	float	projectionWall;
+	int		Wall_top_pixel;
+	int		Wall_bottom_pixel;
+	int		distance_from_top;
+	int		textOff_X;
+	int		textOff_Y;
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 	int		color;
 }			t_pic;
 
@@ -152,10 +198,17 @@ typedef struct s_text
 
 typedef struct s_game
 {
+<<<<<<< HEAD
 	t_player	player;
 	t_map		map;
 	t_data		data;
 	t_ray		raycast;
+=======
+    t_player	player;
+    t_map       map;
+    t_data      data;
+    t_ray       raycast;
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 	t_ray		horizantal;
 	t_ray		vertical;
 	t_ray		*ray;
@@ -171,12 +224,19 @@ void	free_mlx(t_game *game);
 void	display_error(char *msg);
 void	free_check(char *str);
 //draw & create window
+<<<<<<< HEAD
 void	createwindow(t_data *mlx, t_map map);
+=======
+void	CreateWindow(t_data *mlx, t_map map);
+
+void	setup_map(t_map *map, char *table);
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 void	setup(t_player *player, t_map map);
 void	processInput(t_data data);
 void	render(t_game *game);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 int		my_mlx_pixel_pick(t_data *data, int x, int y);
+<<<<<<< HEAD
 void	process_input(t_game *game);
 int		direction(int keyboard, t_game *game);
 //move player
@@ -185,6 +245,21 @@ void	move(t_game *game);
 void	player_position(t_player *player, t_map map);
 void	check_right_left(t_game *game);
 void	takeSize(char **table, t_map *map);
+=======
+void	process_input (t_game *game);
+int		direction(int keyboard, t_game *game);
+
+//move player
+void	moveplayer(t_game *game, int *direction, int num);
+void	move(t_game *game);
+void	playerPosition(t_player *player, t_map map);
+
+//map
+char	*read_file(int fd);
+char	*red_line(int fd);
+int		row_length(char **table);
+void	takeSize(char **table , t_map *map);
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 int		key_press(int keyboard, t_game *game);
 int		key_release(int keyboard, t_game *game);
 int		wall_collection(t_game *game, float x, float y, char num);
@@ -193,6 +268,7 @@ void	put_pixel(t_game *game, t_pic *pic, int wallStrpHeight);
 int		found_wall_strip_height(t_pic *pic, t_game *game);
 //ray-cast
 float	normalize_angle(float angle);
+<<<<<<< HEAD
 void	castray(float rayAngle, int id, t_game *game);
 void	castallrays(t_game *game);
 void	setup_rays(t_ray *raycast);
@@ -200,12 +276,24 @@ float	distance_between_points(float x, float y, float x2, float y2);
 void	horizontal_intersection(t_game *game, float ray_angle);
 void	horizontal_intersection2(t_game *game, int max_width, int max_height);
 void	vertical_intersection2(t_game *game, int max_width, int max_height);
+=======
+void	castRay(float rayAngle, int id, t_game *game);
+void	castAllRays(t_game *game);
+void	setup_rays(t_ray *raycast);
+float	distance_between_points(float x, float y, float x2, float y2);
+void	horizontal_intersection(t_game *game, float ray_angle);
+void	horizontal_intersection2(t_game *game , int max_width, int max_height);
+void	vertical_intersection2(t_game *game , int max_width, int max_height);
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 void	vertical_intersection(t_game *game, float ray_angle);
 int		has_collision(t_game *game, float x, float y, char num);
 void	verify_lower_intersection(t_game *game, float rayAngle, int id);
 void	put_on_struct(t_ray *ray, t_game *game, int id, int choose);
 void	allocate_rays(t_game *game);
+<<<<<<< HEAD
 void	check_ray(t_game *game);
+=======
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 //texture
 void	put_textures_in_array(t_text *text);
 int		setup_texture(t_game *game, t_text *text);
@@ -233,4 +321,8 @@ void	pars_map_norm(t_map *stock, int i, char **av);
 void	pars_map_norm_2(t_map *stock, int *j);
 int		pars_map_norm_again(char *str);
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
