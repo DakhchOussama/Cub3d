@@ -27,23 +27,6 @@ void	*line_c_and_f(char **spl, char *map)
 	return (NULL);
 }
 
-<<<<<<< HEAD
-=======
-int	check_space(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-	{
-		if (str[i] == ' ')
-			str[i] = '1';
-		i++;
-	}
-	return (0);
-}
-
->>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 void	ft_parsing_norm(t_map *pars, char **av)
 {
 	int	fd;
@@ -104,10 +87,6 @@ int	ft_parsing(t_map *pars, char **av)
 int	ft_parsing_frist(t_game *game, int ac, char **av)
 {
 	int		fd;
-<<<<<<< HEAD
-=======
-	int		i;
->>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 
 	if (ac != 2)
 		return (printf("Error\nCheking the arguments"), 1);
@@ -120,18 +99,8 @@ int	ft_parsing_frist(t_game *game, int ac, char **av)
 		return (1);
 	free_2d(game->map.my_map);
 	game->map.my_map = game->map.only_map;
-<<<<<<< HEAD
 	game->map.tile_size = 60;
 	game->map.window_height = game->map.height * game->map.tile_size;
 	game->map.window_width = game->map.num_cols * game->map.tile_size;
-=======
-	i = 0;
-	while (game->map.my_map[i])
-	{
-		if (check_space(game->map.my_map[i]))
-			break ;
-		i++;
-	}
->>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 	return (0);
 }

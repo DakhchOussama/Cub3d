@@ -7,17 +7,10 @@ SRC =	raycasting/free_destroy.c \
 		parsing/get_next_line/get_next_line_utils.c \
 		parsing/check_map.c \
 		parsing/pars_map.c \
-<<<<<<< HEAD
 		parsing/ft_spl.c \
 		parsing/utils_map2.c \
 		parsing/check_texture.c \
 		parsing/utils_map.c \
-=======
-		parsing/utils_map.c \
-		parsing/check_texture.c \
-		parsing/ft_spl.c \
-		parsing/utils_map2.c \
->>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 		raycasting/process_input.c \
 		raycasting/setup.c \
 		raycasting/draw.c \

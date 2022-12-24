@@ -14,7 +14,6 @@
 
 int	setup_texture(t_game *game, t_text *text)
 {
-<<<<<<< HEAD
 	text->north.img = mlx_xpm_file_to_image(game->data.mlx, \
 			game->map.no, &text->north.width, &text->north.height);
 	text->south.img = mlx_xpm_file_to_image(game->data.mlx, \
@@ -25,13 +24,6 @@ int	setup_texture(t_game *game, t_text *text)
 			game->map.we, &text->west.width, &text->west.height);
 	if (!text->north.img || !text->south.img || !text->east.img \
 		|| !text->west.img)
-=======
-	text->north.img = mlx_xpm_file_to_image(game->data.mlx, game->map.no, &text->north.width, &text->north.height);
-	text->south.img = mlx_xpm_file_to_image(game->data.mlx, game->map.so, &text->south.width, &text->south.height);
-	text->east.img = mlx_xpm_file_to_image(game->data.mlx, game->map.ea, &text->east.width, &text->east.height);
-	text->west.img = mlx_xpm_file_to_image(game->data.mlx, game->map.we, &text->west.width, &text->west.height);
-	if (!text->north.img || !text->south.img || !text->east.img || !text->west.img)
->>>>>>> f389e5d2bdbb86db452d027603f50d0e239615db
 		return (1);
 	text->north.addr = mlx_get_data_addr(text->north.img, \
 			&text->north.bpp, &text->north.zl, &text->north.ed);
