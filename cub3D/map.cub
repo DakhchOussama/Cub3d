@@ -1,10 +1,16 @@
-
 NO   	../textures/text1.xpm
 SO ../textures/text2.xpm
 WE      ../textures/text3.xpm
-EA ../textures/text4.xpm
-C 52,226,223
-F 179,179,208
+EA      ../textures/text4.xpm
+C     52, 126,223
+
+F   179, 179, 208
+
+
+
+
+
+
 
         111111111111111111111
         100000000011000000001

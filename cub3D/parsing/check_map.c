@@ -53,6 +53,13 @@ void	ft_parsing_norm(t_map *pars, char **av)
 		if (pars->my_map[i][j] == '1' || pars->my_map[i][j] == '0')
 			break ;
 	}
+	while(pars->my_map[i]) {
+		if (ft_strncmp(pars->my_map[i], "\n", 1) == 0) {
+			printf("Error:\n new line in map");
+			exit(1);
+		}
+		i++;
+	}
 	pars_map(pars, av);
 }
 

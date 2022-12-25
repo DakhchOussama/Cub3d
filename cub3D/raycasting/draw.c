@@ -24,23 +24,23 @@ void	draw_sky(t_game *game, t_pic *pic)
 
 void	draw_wall(t_game *game, t_pic *pic, int wallStrpHeight)
 {
-	if (game->ray[pic->i].was_hit_hertical)
+	if (game->ray[pic->i].was_hit_vertical)
 		pic->textoffset_x = (int)game->ray[pic->i].wall_hit_y \
 				% game->map.tile_size;
 	else
 		pic->textoffset_x = (int)game->ray[pic->i].wall_hit_x \
 				% game->map.tile_size;
 	if (game->ray[pic->i].ray_up && \
-		!game->ray[pic->i].was_hit_hertical)
+		!game->ray[pic->i].was_hit_vertical)
 		game->text.now = game->text.north;
 	else if (game->ray[pic->i].ray_down && \
-		!game->ray[pic->i].was_hit_hertical)
+		!game->ray[pic->i].was_hit_vertical)
 		game->text.now = game->text.south;
 	if (game->ray[pic->i].ray_right && \
-		game->ray[pic->i].was_hit_hertical)
+		game->ray[pic->i].was_hit_vertical)
 		game->text.now = game->text.east;
 	if (game->ray[pic->i].ray_left && \
-		game->ray[pic->i].was_hit_hertical)
+		game->ray[pic->i].was_hit_vertical)
 		game->text.now = game->text.west;
 	put_pixel(game, pic, wallStrpHeight);
 }

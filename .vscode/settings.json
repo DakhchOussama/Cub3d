@@ -1,8 +1,0 @@
-{
-    "C_Cpp.errorSquiggles": "Disabled",
-    "files.associations": {
-        "main.h": "c",
-        "mlx.h": "c",
-        "stdlib.h": "c"
-    }
-}

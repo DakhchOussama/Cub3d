@@ -41,7 +41,6 @@ typedef struct s_data
 	int		ed;
 	int		width;
 	int		height;
-	int		tickslastframe;
 }			t_data;
 
 typedef struct s_map
@@ -78,7 +77,6 @@ typedef struct s_player
 	int		walk_direction_side;
 	float	rotation_angle;
 	float	walk_speed;
-	float	end_line;
 	float	turn_speed;
 }			t_player;
 
@@ -88,7 +86,7 @@ typedef struct s_ray
 	float	wall_hit_x;
 	float	wall_hit_y;
 	float	distance;
-	int		was_hit_hertical;
+	int		was_hit_vertical;
 	int		ray_facing_up;
 	int		ray_facing_down;
 	int		ray_facing_left;

@@ -39,22 +39,6 @@ void	horizontal_intersection(t_game *game, float ray_angle)
 	horizontal_intersection2(game, max_width, max_height);
 }
 
-void	check_ray(t_game *game)
-{
-	size_t	tmp;
-
-	tmp = 0;
-	if ((int)floor(game->horizantal.ytocheck / game->map.tile_size) < \
-		game->map.height && (int)floor(game->horizantal.ytocheck \
-		/ game->map.tile_size) > 0)
-		tmp = ft_strlen(game->map.my_map[(int)floor(game->horizantal.ytocheck \
-		/ game->map.tile_size)]);
-	if (tmp > (size_t)floor(game->vertical.xtocheck / game->map.tile_size))
-		game->horizantal.wall_content = game->map.my_map[(int)floor(\
-		game->horizantal.ytocheck / game->map.tile_size)][(int) floor(\
-		game->vertical.xtocheck / game->map.tile_size)];
-}
-
 void	horizontal_intersection2(t_game *game, int max_width, int max_height)
 {
 	while (game->horizantal.next_touch_x >= 0 && game->horizantal.next_touch_x \
@@ -80,11 +64,27 @@ void	horizontal_intersection2(t_game *game, int max_width, int max_height)
 	}
 }
 
+void	check_ray(t_game *game)
+{
+	size_t	tmp;
+
+	tmp = 0;
+	if ((int)floor(game->horizantal.ytocheck / game->map.tile_size) < \
+		game->map.height && (int)floor(game->horizantal.ytocheck \
+		/ game->map.tile_size) > 0)
+		tmp = ft_strlen(game->map.my_map[(int)floor(game->horizantal.ytocheck \
+		/ game->map.tile_size)]);
+	if (tmp > (size_t)floor(game->vertical.xtocheck / game->map.tile_size))
+		game->horizantal.wall_content = game->map.my_map[(int)floor(\
+		game->horizantal.ytocheck / game->map.tile_size)][(int) floor(\
+		game->vertical.xtocheck / game->map.tile_size)];
+}
+
 void	put_on_struct(t_ray *ray, t_game *game, int id, int choose)
 {
 	game->ray[id].wall_hit_x = ray->wall_hit_x;
 	game->ray[id].wall_hit_y = ray->wall_hit_y;
 	game->ray[id].distance = ray->distance;
 	game->ray[id].wall_content = ray->wall_content;
-	game->ray[id].was_hit_hertical = choose;
+	game->ray[id].was_hit_vertical = choose;
 }

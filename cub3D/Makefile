@@ -1,7 +1,7 @@
 NAME = cub3D
 CC = gcc
 LIB = libft/libft.a
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
 SRC =	raycasting/free_destroy.c \
 		parsing/get_next_line/get_next_line.c \
 		parsing/get_next_line/get_next_line_utils.c \
@@ -23,6 +23,7 @@ SRC =	raycasting/free_destroy.c \
 		raycasting/vertical_Intercestion.c \
 		raycasting/main.c
 
+HEADERS = raycasting/main.h
 
 OBJECTS = $(SRC:.c=.o)
 
@@ -35,8 +36,10 @@ $(NAME): $(LIB) $(OBJECTS)
 	@echo "\033[0;33m [Compilation ongoing ...]\033[0;37m"
 	$(CC) -lmlx -framework OpenGL -framework AppKit libft/libft.a $(CFLAGS) $(OBJECTS) -o $(NAME)
 	@echo "\033[0;32m [Compilation finished ...]\033[0;37m"
-%.o: %.c $(SRC)
+
+%.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -Imlx -c $< -o $@
+
 clean:
 	@make clean -C libft
 	rm -f $(OBJECTS)

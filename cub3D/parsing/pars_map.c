@@ -104,4 +104,4 @@ void	pars_map_norm_2(t_map *stock, int *j)
 	stock->num_cols = stock->longest - 1;
 	stock->only_map[*j] = NULL;
 	stock->height = *j;
-}	
+}
