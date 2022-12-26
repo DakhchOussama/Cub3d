@@ -1,7 +1,19 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/12/26 23:33:22 by mouarsas          #+#    #+#              #
+#    Updated: 2022/12/26 23:38:44 by mouarsas         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = cub3D
 CC = gcc
 LIB = libft/libft.a
-CFLAGS = -Wall -Werror -Wextra -g -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 SRC =	raycasting/free_destroy.c \
 		parsing/get_next_line/get_next_line.c \
 		parsing/get_next_line/get_next_line_utils.c \
