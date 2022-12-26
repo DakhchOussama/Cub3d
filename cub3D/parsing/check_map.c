@@ -6,7 +6,7 @@
 /*   By: mouarsas <mouarsas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/30 00:42:02 by mouarsas          #+#    #+#             */
-/*   Updated: 2022/12/24 15:43:36 by mouarsas         ###   ########.fr       */
+/*   Updated: 2022/12/26 23:25:47 by mouarsas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,41 @@ void	*line_c_and_f(char **spl, char *map)
 {
 	int	i;
 	int	j;
+	int	y;
 
 	i = 0;
 	j = 0;
+	while (++j <= 3)
+	{
+		y = 0;
+		while (spl[j][y])
+		{
+			if (ft_isdigit(spl[j][y]) == 0)
+				return (printf("Error\nR.G.B is not digit"), \
+				free_2d(spl), exit(1), NULL);
+			y++;
+		}
+	}
 	while (++i <= 3)
 		if (ft_atoi(spl[i]) < 0 || ft_atoi(spl[i]) > 255)
 			return (printf("Error\nR.G.B values"), free_2d(spl), exit(1), NULL);
 	if (ft_strsearch(map))
 		return (printf("Error\nR.G.B sytax"), free_2d(spl), exit(1), NULL);
 	return (NULL);
+}
+
+void	check_newline_in_map(t_map *pars, int i, char **av)
+{
+	while (pars->my_map[i])
+	{
+		if (ft_strncmp(pars->my_map[i], "\n", 1) == 0)
+		{
+			printf("Error:\n new line in map");
+			exit(1);
+		}
+		i++;
+	}
+	pars_map(pars, av);
 }
 
 void	ft_parsing_norm(t_map *pars, char **av)
@@ -53,14 +79,7 @@ void	ft_parsing_norm(t_map *pars, char **av)
 		if (pars->my_map[i][j] == '1' || pars->my_map[i][j] == '0')
 			break ;
 	}
-	while(pars->my_map[i]) {
-		if (ft_strncmp(pars->my_map[i], "\n", 1) == 0) {
-			printf("Error:\n new line in map");
-			exit(1);
-		}
-		i++;
-	}
-	pars_map(pars, av);
+	check_newline_in_map(pars, i, av);
 }
 
 int	ft_parsing(t_map *pars, char **av)
