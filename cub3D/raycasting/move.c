@@ -31,8 +31,7 @@ int	has_collision(t_game *game, float x, float y, char num)
 		return (TRUE);
 	map_x = x / game->map.tile_size;
 	map_y = y / game->map.tile_size;
-	if (game->map.my_map[map_y] && (ft_strlen(game->map.my_map[map_y]) > \
-		(size_t)map_x && (size_t)map_x >= 0) && game->map.my_map[map_y][map_x] \
+	if (game->map.my_map[map_y] && game->map.my_map[map_y][map_x] \
 		&& game->map.my_map[map_y][map_x] == num)
 		ret = TRUE;
 	else
