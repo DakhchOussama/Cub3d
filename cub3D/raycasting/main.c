@@ -16,7 +16,9 @@ int	main(int ac, char **av)
 {
 	t_game	game;
 
-	ft_parsing_frist(&game, ac, av);
+	if (ac != 2)
+		return (printf("Error\nCheking the arguments"), 1);
+	ft_parsing_frist(&game, av);
 	createwindow(&game.data, game.map);
 	if (setup_texture(&game, &game.text))
 	{

@@ -111,12 +111,10 @@ int	ft_parsing(t_map *pars, char **av)
 	return (0);
 }
 
-int	ft_parsing_frist(t_game *game, int ac, char **av)
+int	ft_parsing_frist(t_game *game, char **av)
 {
 	int		fd;
 
-	if (ac != 2)
-		return (printf("Error\nCheking the arguments"), 1);
 	fd = open(av[1], O_RDWR);
 	ft_error_fd(fd);
 	close(fd);
