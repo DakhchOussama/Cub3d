@@ -34,6 +34,6 @@ void	setup(t_player *player, t_map map)
 		player->rotation_angle = 0;
 	else if (map.position == 'W')
 		player->rotation_angle = PI;
-	player->walk_speed = 70;
+	player->walk_speed = 90;
 	player->turn_speed = 10 * (PI / 180);
 }
