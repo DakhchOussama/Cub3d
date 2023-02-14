@@ -2,11 +2,8 @@
 
 **Ray-casting** : is a rendering technique to create a 3D perspective in a 2D map. Back when computers were slower it wasn't possible to run real 3D engines in realtime, and ray-casting was the first solution. Ray-casting can go very fast, because only a calculation has to be done for every vertical line of the screen. The most well known game that used this technique, is of course Wolfenstein 3D.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ba2865f6-c613-447e-b40c-cf81bf36248a/Untitled.png)
 
 **Ray-tracing** : is a lighting technique that brings an extra level of realism to games. It emulates the way light reflects and refracts in the real world, providing a more believable environment than what’s typically seen using static lighting in more traditional games.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a081d148-59ec-41d2-afca-f0bddd9b0993/Untitled.png)
 
 ### **Ray-casting vs Ray-tracing :**
 
@@ -28,21 +25,15 @@ Ray-Tracing :
 
 ## Ray-casting Limitations :
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3b4405b7-895c-461c-a838-835f12dc3c0a/Untitled.png)
-
 - Walls are always perpendicular (عمودي) (90-degree angle) with the floor
 - Floor is always flat
 - Walls are made of cubes that have the same size (square grid only) (شبكة مربعة فقط)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a6e566ae-4348-4205-9921-252e137c22a6/Untitled.png)
 
 # Trigonometry :
 
 **Degrees and Radians :** 
 
 **Degrees :** 
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d505455a-f192-4d90-a60f-c6f09e024186/Untitled.png)
 
 0 degree to 360 degree
 
@@ -53,12 +44,6 @@ The **Radian** is a pure measure based on the **Radius** of the circle
 In classical geometry, a radius of a circle or sphere is any of the line segments from its center to its perimeter, and in more modern usage, it is also their length.
 
 1 radian = 57.2958 degree
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/69735495-9c8a-4841-956a-44dcb43c7d25/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ae9318c3-da2c-4d6d-86e6-9e6d007266a2/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/86f8b2c4-37e9-4c56-9c67-7292d34f0d48/Untitled.png)
 
 Dimension (البعد) of the projection plane : 320 * 200
 
@@ -74,23 +59,13 @@ rayAngle += FOV_ANGLE / NUM_RAYS;
 
 FOV stands for field of view, or field of vision. This is the range of what a user can see. For example, your FOV in a video game is how much of a given level you can see on your screen at once. Meanwhile, your FOV when wearing a VR headset determines how much of the landscape ahead of you is visible when you’re wearing the headset.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/51b65b7d-ccaf-4f8f-9ad4-0ba31b231d78/Untitled.png)
-
 **Field of view** is the extent of the observable world that is seen at a given time either through someone's eyes, on a display screen, or through the viewfinder on a camera. Field of view (FOV) also describes the angle through which one can see that observable world. It refers to the coverage of an entire area, rather than a fixed focal point.
 
 In humans, the average field of view is about 170-180 degrees. This is often hard to accomplish through gaming or optical devices. The wider the field of view, the more one can see of that observable world.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e3bc2b9a-cb0c-4d6f-a9bc-4b2823a4c582/Untitled.png)
-
 ## Sine Cosine and Tangent :
 
 A right-angled triangle is a triangle in which one of the angles is a right-angle. The hypotenuse of a right angled triangle is the longest side, which is the one opposite the right angle. The adjacent side is the side which is between the angle in question and the right angle. The opposite side is opposite the angle in question.
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/08db0d5a-fe5f-4211-a65a-6eb10f6798a6/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c89e8f61-b722-4412-ab1e-be653f3c0be2/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/1bc9ecaf-c611-41e8-92df-3e3abd02629b/Untitled.png)
 
 $$
 tan(30degree) = 160 / adjacent
@@ -104,8 +79,6 @@ Dimension of the projection plane : 320 * 200
 
 Distance from player to projection plane : 277.13 units/pixels 
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4c30161c-164c-488f-9885-10a6e2ff0548/Untitled.png)
-
 **Pythagorean theorem :**
 
 $$
@@ -118,19 +91,9 @@ distanceAB = sqrt((B.x - A.x) * (B.x - A.x) + (B.y - A.y) * (B.y - A.y));
 
 # Defining the 2D Map Grid :
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/39de0bfc-66c1-42f9-8593-a46c84db5381/Untitled.png)
-
 ## Defining the Map :
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a3e327bc-2252-46c9-b923-752627776b1c/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/43353522-1489-4f8f-9677-dd48b76c00a9/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e14e1698-b039-4ec6-83ab-42bf581646d0/Untitled.png)
-
 i & j is variables 
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3ddd1fd1-3b56-4443-b9e4-c5472b5f2dba/Untitled.png)
 
 ### Ray-casting in Cub3D :
 
@@ -143,9 +106,6 @@ i & j is variables
     4. Add the angle increment so the ray moves to the right
         
         rayAngle += 60 /320 (زاوية الشعاع)
-        
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/96bea06c-1f62-40db-866b-a3e855c70a36/Untitled.png)
     
     ```jsx
     function castallRays()
@@ -186,8 +146,6 @@ i & j is variables
     
     ### Distance to Wall Hit :
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/6d0b328a-c864-4359-bdb5-d68ab6cdc3c3/Untitled.png)
-    
     1. The best way is to check for horizontal “|” and vertical “-” intersections separately 
     2. When there is a wall on either a vertical or horizontal intersection, the checking stops
     3. The distance to both horizontal and vertical intersection point is then compared , and we select then closest one 
@@ -195,8 +153,6 @@ i & j is variables
     ### Finding Horizontal intersections :
     
     1. **Find coordinate of the first horizontal intersection (point A)**
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/bf4c5cce-3640-4908-8b74-4c4a125323b2/Untitled.png)
     
     the distance Δx will always be the same for the next horizontal intersections
     
@@ -208,17 +164,9 @@ i & j is variables
     long ystep; 
     ```
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/346b2c10-de02-461f-8187-6be5ed413b7f/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2b36df83-7e0d-4a97-b77b-04876ed340a1/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/492b5492-f37a-41c6-b231-c256706cc01a/Untitled.png)
-    
     $$
     Ay = |Py/32| * 32
     $$
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ca1c4b18-9b88-42be-9b7c-ee4a48601f55/Untitled.png)
     
     $$
     Ax = Px + (Py - Ay) / tan(a)
@@ -231,10 +179,6 @@ i & j is variables
     ```
     
     1. **Find ystep and xstep :**
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/7c192405-d27f-461a-9c90-333f30b1e365/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/aedc0c47-d741-47dc-977c-b59101aa5f85/Untitled.png)
     
     $$
     ystep = 32
@@ -269,11 +213,6 @@ i & j is variables
         then : store Vertical hit distance
         
         else : find next Vertical intersection
-        
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/21885d50-9eed-4bfa-9ce6-05deab66e2bb/Untitled.png)
-    
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/3e4ca256-2f15-4f03-ad30-9a160c1d06c5/Untitled.png)
     
     $$
     xint ercept = (Px / Tile-size) * Tile-size
@@ -295,24 +234,14 @@ i & j is variables
     
     ## Distance from ray to wall hit :
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c7aafceb-312a-4648-b56f-6c29b8bf96d1/Untitled.png)
-    
     1. We have just found the first intersection with the grid (point **A**)
     2. And we also calculated Δx and Δy (aka xstep and ystep)
     3. All we have to do is loop incrementing xstep horizontally and ystep vertically until a wall (map[i][j] == 1)
     4. Get both horizontal distance and vertical distance and the closest one is our final distance from the ray to the wall
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/655dc829-9ce9-4b2d-98a6-fe38cde12878/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/07dc8393-c1b3-44e5-834b-c7444f1b5b06/Untitled.png)
-
 # Rendering Walls :
 
-## wall projection (إسقاط) :
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5ad80ea6-7b7e-41e9-a22b-3ede7899af98/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f77658c5-5912-41d7-b0dc-3d262178accd/Untitled.png)
+## wall projection :
 
 actual wall height : 32
 
@@ -320,33 +249,13 @@ distance to the wall : (ray.distance)
 
 distance from player to projection plane :
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2011b576-cd0e-4225-b8b7-39d785d89901/Untitled.png)
-
 ## Finding the wall strip height :
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/11becfdc-580c-4d8f-9b4e-f839be5f3d73/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/618420b3-529e-4c50-8628-c5f0d60f53a8/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e752a252-bb1c-485c-9f88-44f752896334/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8b07a080-c3b2-4749-9e85-929eee162cfd/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8f8c4626-b9b3-44a7-9370-87316cbcd05e/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8399fd8b-5cd0-4159-8bd8-28adcc093699/Untitled.png)
-
 ## Fishbowl Distrotion :
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/38426ec4-56f6-45a9-83a2-eb1fe87a7dae/Untitled.png)
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/03929d9b-add5-4cfc-9f6a-3291e5a969ab/Untitled.png)
 
 $$
 cos(o) = correct-distance / distored-distance 
 $$
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/39b05702-3c7f-420d-8dd1-5b4d59e8f8e1/Untitled.png)
 
 ```c
 correctDistance = ray.distance * Math.cos(ray.rayAngle - player.rotationAngle);
@@ -852,8 +761,6 @@ correctDistance = ray.distance * Math.cos(ray.rayAngle - player.rotationAngle);
     
 
 **Draw Wall :**
-
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/985b1cff-f604-43a4-a7eb-3d6b982bb8e2/Untitled.png)
 
 **Texture :** 
 
