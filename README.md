@@ -9,9 +9,9 @@
 
 Ray-casting :
 
-- Rays are cast and traced (تتبع)in groups
-- in a 320x200 display resolution a ray-caster traces only 320 rays (أشعة)
-- Fast rendering (استدعاء)
+- Rays are cast and traced in groups
+- in a 320x200 display resolution a ray-caster traces only 320 rays
+- Fast rendering
 - Resulting image is not very realistic
 - a viable option for real-time rendering
 
