@@ -75,3 +75,6 @@
 
 ...
 
+If you want more informations, send your email Notion to my Email:
+
+📧 oussamadakhch1999@gmail.com
