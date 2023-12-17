@@ -33,8 +33,6 @@
 - Radians are a pure measure based on the radius of the circle.
 - 1 radian = 57.2958 degrees.
 
-...
-
 ## Icons
 🛠️ **MinilibX**: A tiny graphics library for basic rendering in screens without knowledge of X-Window and Cocoa.
 
@@ -47,8 +45,6 @@
 🎨 **Rendering Walls**: Learn about wall projection, wall strip height, and fishbowl distortion.
 
 ⚙️ **About X-Window**: Information on X-Window and its relevance to MiniLibX.
-
-...
 
 ## Controls:
 
